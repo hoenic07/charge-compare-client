@@ -25,6 +25,14 @@ export default class InfoSidebar extends ViewBase {
         action: ()=> new ModalInstallApp(this.depts).show()
       },
       {
+        id: "update",
+        title: "Update",
+        subTitle: "Make sure to have the latest version of Chargeprice",
+        icon: "refresh",
+        show: ()=> this.customConfig.isMobileOrTablet(),
+        action: ()=> location.reload(true)
+      },
+      {
         id: "map_legend",
         title: this.t("poiKey"),
         icon: "map",
@@ -72,6 +80,12 @@ export default class InfoSidebar extends ViewBase {
         title: this.t("fbReportMissingStationHeader"),
         icon: "comment",
         action: ()=>this.onGiveFeedback("missing_station")
+      },
+      {
+        id: "disclaimer",
+        title: this.t("disclaimerHeader"),
+        icon: "legal",
+        action: ()=> new ModalDisclaimer(this.depts).show()
       },
       {
         id: "disclaimer",
